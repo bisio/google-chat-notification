@@ -21,7 +21,7 @@ const textButton = (text: string, url: string) => ({
   }
 });
 
-export async function notify(name: string, url: string, status: Status) {
+export async function notify(name: string, url: string, status: Status, extra: string) {
   const { owner, repo } = github.context.repo;
   const { eventName, sha, ref } = github.context;
   const { number } = github.context.issue;
@@ -59,7 +59,10 @@ export async function notify(name: string, url: string, status: Status) {
             },
             {
               keyValue: { topLabel: "ref", content: ref }
-            }
+            },
+            {
+              keyValue: { topLabel: "extra", content: extra }
+            }            
           ]
         },
         {
