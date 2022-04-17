@@ -11,6 +11,9 @@ inputs:
   status:
     description: 'job status.'
     required: true
+  extra:
+    description: 'extra info.'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
